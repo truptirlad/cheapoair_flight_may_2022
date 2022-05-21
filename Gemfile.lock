@@ -79,6 +79,7 @@ GEM
     watir (7.1.0)
       regexp_parser (>= 1.2, < 3)
       selenium-webdriver (~> 4.0)
+    yaml (0.1.1)
     yml_reader (0.7)
 
 PLATFORMS
@@ -91,6 +92,7 @@ DEPENDENCIES
   page-object (~> 2.0)
   rake
   rspec
+  yaml
 
 BUNDLED WITH
    2.2.17

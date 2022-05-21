@@ -2,6 +2,8 @@ class CheapoairFlightPage
   include PageObject
 
   page_url "www.cheapoair.com"
+  #page_url = $url
+
 
   link(:dep_suggestion_box, class: 'suggestion-box__clear icon', index: 0)
   link(:arr_suggestion_box, class: 'suggestion-box__clear icon', index: 1)
@@ -20,7 +22,7 @@ class CheapoairFlightPage
 
   def search_dep_airport dep_city, dep_airport
     dep_suggestion_box_element.click if dep_suggestion_box_element.present?
-    # dep_airport_field_element.set dep_city
+    #dep_airport_field_element.set dep_city
     self.dep_airport_field = dep_city
     sleep 1
     all_dep_suggested_airports_element.lis.each do |all_airports|
@@ -46,17 +48,17 @@ class CheapoairFlightPage
     end
   end
 
-  def cal_date no_of_days
+  def cal_date(no_of_days)
     (Time.now + 24 * 60 * 60 * no_of_days).strftime("%-d %B %Y")
   end
 
-  def choose_dep_date no_of_days
+  def choose_dep_date(no_of_days)
     exact_date = cal_date no_of_days
     dep_date_element.click
     @browser.link(aria_label: exact_date).click
   end
 
-  def choose_arr_date no_of_days
+  def choose_arr_date(no_of_days)
     exact_date = cal_date no_of_days
     arr_date_element.click
     @browser.link(aria_label: exact_date).click
